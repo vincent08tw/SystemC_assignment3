@@ -6,7 +6,7 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 [create date]---
 2021-10-28
 [last edit]---
-2021-11-01 
+2021-11-02
 ****************************/ 
 
 
@@ -27,11 +27,10 @@ ifstream& operator>>(ifstream &in, List &list)
     long temp;
     in >> temp;
     list.setLength(temp);
-    unsigned int j;
-    for(int i = 0,j = 0; i < list.getLength(); i++,j++)
+    for(unsigned int i = 0; i < list.getLength(); i++)
     {
         in >> temp;
-        list.setElement(j,temp);
+        list.setElement(i,temp);
     }
     
     return in;
@@ -57,11 +56,10 @@ ofstream& operator<<(ofstream &out, List list)
     }
     else
     {
-        unsigned int j;
-        for(int i = 0, j = 0; i < list.getLength(); i++,j++)
+        for(unsigned int i = 0; i < list.getLength(); i++)
         {
             // must be written like this
-            static_cast<ostream&>(out) << list.getElement(j) << " "; 
+            static_cast<ostream&>(out) << list.getElement(i) << " "; 
             //out << list.getElement(j) << " "; << this will get error 
         }
         out << endl;
@@ -86,11 +84,10 @@ istream& operator>>(istream &in, List &list)
     }
     else
     {
-        unsigned int j;
-        for(int i = 0,j = 0; i < list.getLength(); i++,j++)
+        for(unsigned int i = 0; i < list.getLength(); i++)
         {
             in >> temp;
-            list.setElement(j,temp);
+            list.setElement(i,temp);
         }
     }
     
@@ -117,10 +114,9 @@ ostream& operator<<(ostream &out, List list)
     }
     else
     {
-        unsigned int j;
-        for(int i = 0,j = 0; i < list.getLength(); i++,j++)
+        for(unsigned int i = 0; i < list.getLength(); i++)
         {
-            out << list.getElement(j) << " ";
+            out << list.getElement(i) << " ";
         }
         out << endl;
     }
@@ -308,7 +304,7 @@ int List::setLength(unsigned int newLength)
 The function returns the value of length.
 2021-10-31
 */
-int List::getLength() const
+unsigned int List::getLength() const
 {
     return this->length;
 }
@@ -327,7 +323,7 @@ List& List::operator=(const List& other)
         if(length > 0)
         {
             this->reCreate(length); 
-            for(int i = 0; i < this->getLength();i++)
+            for(unsigned int i = 0; i < this->getLength();i++)
             {
                 this->setElement(i, other.getElement(i));
             }
@@ -385,7 +381,7 @@ List::List(const List &other)
     if(length > 0)
     {
         this->reCreate(length);
-        for(int i = 0;i < this->getLength();i++)
+        for(unsigned int i = 0;i < this->getLength();i++)
         {
             this->setElement(i, other.getElement(i));   
         }   

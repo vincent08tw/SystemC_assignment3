@@ -6,7 +6,7 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 [create date]---
 2021-10-26 
 [last edit]---
-2021-11-01
+2021-11-02
 ****************************/ 
 
 #include <assert.h>
@@ -16,11 +16,6 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 #include <fstream>
 #include "Node.h"
 using namespace std;
-
-void Node::delete_Node()
-{
-    delete [] this->_Node;
-}
 
 long Node::getElement_Node(unsigned int pos) const
 {
@@ -120,4 +115,9 @@ long* Node::reCreate(unsigned int _length)
              << endl;
     }
     return _Node;
+}
+
+void Node::delete_Node()
+{
+    delete [] this->_Node;
 }

@@ -6,7 +6,7 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 [create date]---
 2021-10-28
 [last edit]---
-2021-11-01
+2021-11-02
 ****************************/ 
 
 
@@ -33,7 +33,7 @@ class List : public Node
         List& operator=(const List& other);
         
         // The function returns the value of length.
-        int getLength() const;
+        unsigned int getLength() const;
         
         int setLength(unsigned int);
 

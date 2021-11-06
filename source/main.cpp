@@ -6,7 +6,7 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 [create date]---
 2021-10-26 
 [last edit]---
-2021-11-01
+2021-11-02
 ****************************/ 
 
 
@@ -20,7 +20,9 @@ using namespace std;
 
 struct my_out
 {
-    my_out(std::ostream& out1, std::ostream& out2) : out1_(out1), out2_(out2) {}
+    my_out(std::ostream& out1,
+           std::ostream& out2) : out1_(out1), 
+                                 out2_(out2) {}
 
     std::ostream& out1_;
     std::ostream& out2_;
@@ -44,7 +46,7 @@ my_out& operator<<(my_out& mo, std::ostream&(*f)(std::ostream&))
     return mo;
 }
 
-int main(int argv, char** argc)
+int main(int argc, char** argv)
 {
     
     
@@ -60,11 +62,11 @@ int main(int argv, char** argc)
     }
     
     ifstream input_file;
-    input_file.open(argc[1]);
+    input_file.open(argv[1]);
     if(!input_file.is_open())
     {
         myout << "Failed to open the file: " 
-              << argc[1] 
+              << argv[1] 
               << "." 
               << endl;
         return 0;
@@ -106,7 +108,7 @@ int main(int argv, char** argc)
           << endl; 
          
     List list4(list1.getLength());
-    for(int i = 0; i < list4.getLength(); i++)
+    for(unsigned int i = 0; i < list4.getLength(); i++)
     {
         list4.setElement(i,list1.getElement(i));
     }
@@ -182,7 +184,8 @@ int main(int argv, char** argc)
           << endl << endl;
 
     // Use operator-- to subtract 1 from all elements in a List 
-    myout << ">> Now use operator-- to subtract 1 from all elements in a List \n"
+    myout << ">> Now use operator-- " 
+          << "to subtract 1 from all elements in a List \n"
           << "list5 will be the result of (list5 + list1) \n"
           << "list5 = list2--;"
           << endl << endl;
@@ -201,7 +204,8 @@ int main(int argv, char** argc)
           << endl << endl;
     
     // Use operator--(long) to subtract 1 from all elements in another List
-    myout << ">> Now use operator-- to subtract 1 from all elements in a List \n"
+    myout << ">> Now use operator-- "
+          << "to subtract 1 from all elements in a List \n"
           << "list3 will be the result of (--list2) \n"
           << "list3 = --list2;"
           << endl << endl;

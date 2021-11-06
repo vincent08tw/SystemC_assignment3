@@ -6,7 +6,7 @@ yu-wen Wang (vincent08tw@gmail.com) (vincent08tw@yahoo.com.tw)
 [create date]---
 2021-10-26 
 [last edit]---
-2021-11-01
+2021-11-02
 ****************************/ 
 
 
@@ -41,7 +41,6 @@ class Node
         long getElement_Node(unsigned int pos) const;
         
         void delete_Node();
-        
     protected:
         // Protected Declarations
 };
